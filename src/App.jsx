@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import SessionNotes from './SessionNotes'
 
 function App() {
   const [sessions, setSessions] = useState([])
@@ -96,11 +97,12 @@ function App() {
 
         <button type='submit'>Training speichern</button>
       </form>
-      
+
       <ul>
         {sessions.map(session => (
           <li key={session.id}>
             {session.date} - {session.type} - {session.durationMinutes} Min - Intensität: {session.intensity}
+            <SessionNotes sessionId={session.id} />
           </li>
         ))}
       </ul>
